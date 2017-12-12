@@ -5,7 +5,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         
-        Since the array is already sorted, we can keep two pointers i and k, where ii is the slow-runner while jj is the fast-runner. 
+        Since the array is already sorted, we can keep two pointers i and k, where i is the slow-runner while k is the fast-runner. 
         As long as nums[i] = nums[k], we increment k to skip the duplicate; 
         else the duplicate run has ended, so increase i by 1 and then copy its value to nums[i]
 
