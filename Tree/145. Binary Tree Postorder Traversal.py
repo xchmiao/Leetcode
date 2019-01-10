@@ -5,8 +5,7 @@
 #         self.left = None
 #         self.right = None
 
-## Method-1
-
+## Solution-1
 '''
 1.1 Create an empty stack
 2.1 Do following while root is not NULL
