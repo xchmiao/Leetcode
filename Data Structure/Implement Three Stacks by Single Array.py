@@ -22,7 +22,7 @@ class ThreeStacks:
         self.stack_pointer[stackNum] = self.index_used
         self.index_used += 1
         self.buffer[self.stack_pointer[stackNum]] = StackNode(last_index, value, -1)
-        if last_index != -1: # if it is not the 1st element in stack, linked to last element
+        if last_index != -1: # if it is not the 1st element in stack, linked to previous element (last)
             self.buffer[last_index].next = self.stack_pointer[stackNum]
 
     """
@@ -36,12 +36,12 @@ class ThreeStacks:
         if last_index != self.index_used - 1: # if the element is not the last element of list, exchange with the last one
             self.swap(last_index, self.index_used - 1, stackNum)
             
-        self.stack_pointer[stackNum] = self.buffer[self.stack_pointer[stackNum]].prev
-        if self.stack_pointer[stackNum] != -1:
+        self.stack_pointer[stackNum] = self.buffer[self.stack_pointer[stackNum]].prev # the stack_pointer set back to previous node, and last_index could be changed after the swap()
+        if self.stack_pointer[stackNum] != -1: # not empt
             self.buffer[self.stack_pointer[stackNum]].next = -1
         
-        self.buffer[self.index_used - 1] = None
-        self.index_used -= 1
+        self.buffer[self.index_used - 1] = None # remove the last node
+        self.index_used -= 1 # reduce the index_used by 1
         return value
     """
     @param: stackNum: An integer
@@ -61,9 +61,8 @@ class ThreeStacks:
     
     def swap(self, last_index, top_index, stackNum):
         if self.buffer[last_index].prev == top_index:
-            self.buffer[last_index].value = self.buffer[top_index].value
-            self.buffer[top_index].value = self.buffer[last_index].value
-            tp = self.buffer[top_index].prev
+            self.buffer[last_index].value, self.buffer[top_index].value = self.buffer[top_index].value, self.buffer[last_index].value
+            tp = self.buffer[top_index].prev # top's previous node
             if tp != -1:
                 self.buffer[tp].next = last_index
             self.buffer[last_index].prev = tp
