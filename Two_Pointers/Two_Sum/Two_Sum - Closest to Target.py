@@ -1,8 +1,10 @@
 class Solution:
     """
-    
+    @param nums: an array of integers
+    @param target: an integer
+    @return: an integer
     """
-    def twoSumClosest(self, nums, target):
+    def twoSumClosest(self, nums: List[int], target: int) -> int:
 
         if not nums or len(nums) == 1:
             return -1
