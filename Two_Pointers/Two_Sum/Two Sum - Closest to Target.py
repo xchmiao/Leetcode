@@ -12,7 +12,7 @@ class Solution:
         nums = sorted(nums)
         left, right = 0, len(nums) - 1
 
-        min_delta = - (1 << 31)
+        min_delta = (1 << 31)
 
         while left < right:
             two_sum = nums[left] + nums[right]
