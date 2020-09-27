@@ -23,6 +23,6 @@ class Solution:
     			left += 1
     			right -= 1
     			
-    	# When the while loop stops, right = left - 1
+    	# When the while loop stops, right > left (i.e. right = left - 1 or right = left - 2)
     	quick_sort(self, A, start, right)
     	quick_sort(self, A, left, end)
