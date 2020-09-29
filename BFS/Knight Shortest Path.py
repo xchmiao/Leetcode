@@ -30,8 +30,6 @@ class Solution:
 
         return -1
 
-
-
     def is_valid(self, grid, x, y, visited):
 
         return 0 <= x < len(grid) and 0 <= y < len(grid[0]) and (x, y) not in visited and grid[x][y] == 0
