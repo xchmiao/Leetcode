@@ -14,15 +14,15 @@ class Solution(object):
         """
         if not root:
             return []
-        else:
-            result = []
-            stack_nodes = [root]
-            while len(stack_nodes) > 0:
-                node = stack_nodes.pop()
-                result.append(node.val)
-                if node.right:
-                    stack_nodes.append(node.right)
-                if node.left:
-                    stack_nodes.append(node.left)
+
+        result = []
+        stack_nodes = [root]
+        while len(stack_nodes) > 0:
+            node = stack_nodes.pop()
+            result.append(node.val)
+            if node.right:
+                stack_nodes.append(node.right)
+            if node.left:
+                stack_nodes.append(node.left)
                 
-            return result
+        return result
