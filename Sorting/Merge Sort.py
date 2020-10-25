@@ -15,7 +15,7 @@ class Solution:
 
     	self.merge_sort(A, start, (start + end) // 2, temp)
     	self.merge_sort(A, (start + end) // 2 + 1, end, temp)
-    	self.merge(A, start, end, tmp)
+    	self.merge(A, start, end, temp)
 
 
     def merge(self, A, start, end, tmp):
