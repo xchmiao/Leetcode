@@ -1,0 +1,50 @@
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
+        
+class Trie:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.root = TrieNode()
+        
+    def find(self, word: str) -> TrieNode:
+        
+        node = self.root
+        for c in word:
+            if c not in node.children:
+                return None
+            node = node.children[c]
+        return node
+
+    def insert(self, word: str) -> None:
+        """
+        Inserts a word into the trie.
+        """
+        
+        node = self.root
+        for c in word:
+            if c not in node.children:
+                node.children[c] = TrieNode()
+            node = node.children[c]
+        
+        node.is_word = True
+        
+
+    def search(self, word: str) -> bool:
+        """
+        Returns if the word is in the trie.
+        """
+        
+        node = self.find(word)
+        return node is not None and node.is_word
+
+    def startsWith(self, prefix: str) -> bool:
+        """
+        Returns if there is any word in the trie that starts with the given prefix.
+        """
+        node = self.find(prefix)
+        return node is not None
