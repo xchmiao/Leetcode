@@ -3,7 +3,7 @@ https://leetcode.com/problems/implement-trie-prefix-tree/
 """
 class TrieNode:
     def __init__(self):
-        self.children = {}
+        self.children = {} # mapping char to TrieNode, i.e. char: TrieNode()
         self.is_word = False
         
 class Trie:
