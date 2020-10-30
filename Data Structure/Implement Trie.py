@@ -15,7 +15,6 @@ class Trie:
         self.root = TrieNode()
         
     def find(self, word: str) -> TrieNode:
-        
         node = self.root
         for c in word:
             if c not in node.children:
@@ -30,10 +29,11 @@ class Trie:
         
         node = self.root
         for c in word:
+            # if c is not a child of current node, then create a new TrieNode for c
             if c not in node.children:
                 node.children[c] = TrieNode()
             node = node.children[c]
-        
+        # at the end, set the is_word = True, i.e. flag it is word
         node.is_word = True
         
 
